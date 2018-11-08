@@ -12,6 +12,27 @@
 @import "normalize.css/normalize.less";
 
 
+/**
+ * header color.
+ */
+
+.outer-wrap-header {
+	background-color:#e6616b;
+	color:black;
+	margin-bottom: 0rem !important;
+}
+
+
+.outer-wrap-footer {
+
+	background-color:#e6616b !important;
+	p {
+	color:white;
+	}
+	h4 {
+	color:white;
+	}
+}
 
 /**
  * Font Awesome.
@@ -91,11 +112,8 @@ img.responsive {
 
 html.vgrid .inner-wrap {
     @gridImage: "../img/theme/grid950x24x30x10-nomargin.png";
-    #desinax-vgrid.showGrid(1100px, @gridImage);
+    background-color:black;
 
-    &.inner-wrap-header {
-        #desinax-vgrid.showGrid(100%, @gridImage);
-    }
 }
 
 
@@ -205,6 +223,8 @@ html.hgrid .inner-wrap {
     font-family: @fontFamilyCambria;
     font-size: 1.5em;
     line-height: 0;
+		color: white;
+
 }
 
 .rm-menu-button {
@@ -213,6 +233,7 @@ html.hgrid .inner-wrap {
 
 .rm-desktop li ul {
     background-color: #fff;
+		color:black;
 }
 
 .wrap-sidebar .block h4 {
@@ -220,14 +241,55 @@ html.hgrid .inner-wrap {
     background-image: linear-gradient(to right, #fff, #ccc);
 }
 
+.centerTitle {
+	 left: 50%;
+	 transform: translate(-50%,0);
+	 // position: absolute;
+	 z-index: 1;
+	 font-size: 10rem;
 
+
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 700;
+  font-size: 10vw;
+  text-transform: uppercase;
+  margin: 0;
+  color: white;
+  text-shadow: 1px 1px 0 #e6616b,
+               2px 2px 0 rgba(181, 76, 84, 0.95),
+               3px 3px 0 rgba(181, 76, 84, 0.9),
+               4px 4px 0 rgba(181, 76, 84, 0.85),
+               5px 5px 0 rgba(181, 76, 84, 0.8),
+               6px 6px 0 rgba(181, 76, 84, 0.75),
+               7px 7px 0 rgba(181, 76, 84, 0.7),
+               8px 8px 0 rgba(181, 76, 84, 0.65),
+               9px 9px 0 rgba(181, 76, 84, 0.6),
+               10px 10px 0 rgba(181, 76, 84, 0.55),
+               11px 11px 0 rgba(181, 76, 84, 0.5),
+               12px 12px 0 rgba(181, 76, 84, 0.45),
+               13px 13px 0 rgba(181, 76, 84, 0.4),
+               14px 14px 0 rgba(181, 76, 84, 0.35),
+               15px 15px 0 rgba(181, 76, 84, 0.3),
+               16px 16px 0 rgba(181, 76, 84, 0.2),
+               17px 17px 0 rgba(181, 76, 84, 0.15),
+               18px 18px 0 rgba(181, 76, 84, 0.1);
+
+
+}
+
+.redDiv {
+	min-height: 10rem;
+	background-color: #e6616b;
+	text-align: center;
+
+}
 
 /**
  * My settings.
  */
-@bgColorHtml: #424242;
-@bgColorBody: #fff;
-@colorBody:   #111;
+@bgColorHtml: white;
+@bgColorBody: transparent;
+@colorBody:   black;
 
 @fontFamilyHeadings: @fontFamilyCambria;
 @fontFamilyBody:     @fontFamilyVerdana;

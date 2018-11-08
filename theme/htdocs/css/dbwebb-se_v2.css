@@ -308,10 +308,27 @@ template {
   display: none;
 }
 /**
+ * header color.
+ */
+.outer-wrap-header {
+  background-color: #e6616b;
+  color: black;
+  margin-bottom: 0rem !important;
+}
+.outer-wrap-footer {
+  background-color: #e6616b !important;
+}
+.outer-wrap-footer p {
+  color: white;
+}
+.outer-wrap-footer h4 {
+  color: white;
+}
+/**
  * Font Awesome.
  */
 /*!
- * Font Awesome Free 5.4.2 by @fontawesome - https://fontawesome.com
+ * Font Awesome Free 5.5.0 by @fontawesome - https://fontawesome.com
  * License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
  */
 .fa,
@@ -1171,11 +1188,26 @@ template {
 .fa-cloud-download-alt:before {
   content: "\f381";
 }
+.fa-cloud-meatball:before {
+  content: "\f73b";
+}
 .fa-cloud-moon:before {
   content: "\f6c3";
 }
+.fa-cloud-moon-rain:before {
+  content: "\f73c";
+}
+.fa-cloud-rain:before {
+  content: "\f73d";
+}
+.fa-cloud-showers-heavy:before {
+  content: "\f740";
+}
 .fa-cloud-sun:before {
   content: "\f6c4";
+}
+.fa-cloud-sun-rain:before {
+  content: "\f743";
 }
 .fa-cloud-upload-alt:before {
   content: "\f382";
@@ -1377,6 +1409,9 @@ template {
 }
 .fa-delicious:before {
   content: "\f1a5";
+}
+.fa-democrat:before {
+  content: "\f747";
 }
 .fa-deploydog:before {
   content: "\f38e";
@@ -1785,6 +1820,9 @@ template {
 }
 .fa-flag-checkered:before {
   content: "\f11e";
+}
+.fa-flag-usa:before {
+  content: "\f74d";
 }
 .fa-flask:before {
   content: "\f0c3";
@@ -2629,6 +2667,9 @@ template {
 .fa-mercury:before {
   content: "\f223";
 }
+.fa-meteor:before {
+  content: "\f753";
+}
 .fa-microchip:before {
   content: "\f2db";
 }
@@ -2905,6 +2946,9 @@ template {
 .fa-periscope:before {
   content: "\f3da";
 }
+.fa-person-booth:before {
+  content: "\f756";
+}
 .fa-phabricator:before {
   content: "\f3db";
 }
@@ -3001,6 +3045,9 @@ template {
 .fa-poo:before {
   content: "\f2fe";
 }
+.fa-poo-storm:before {
+  content: "\f75a";
+}
 .fa-poop:before {
   content: "\f619";
 }
@@ -3082,6 +3129,9 @@ template {
 .fa-r-project:before {
   content: "\f4f7";
 }
+.fa-rainbow:before {
+  content: "\f75b";
+}
 .fa-random:before {
   content: "\f074";
 }
@@ -3090,6 +3140,9 @@ template {
 }
 .fa-react:before {
   content: "\f41b";
+}
+.fa-reacteurope:before {
+  content: "\f75d";
 }
 .fa-readme:before {
   content: "\f4d5";
@@ -3135,6 +3188,9 @@ template {
 }
 .fa-replyd:before {
   content: "\f3e6";
+}
+.fa-republican:before {
+  content: "\f75e";
 }
 .fa-researchgate:before {
   content: "\f4f8";
@@ -3378,6 +3434,9 @@ template {
 }
 .fa-smile-wink:before {
   content: "\f4da";
+}
+.fa-smog:before {
+  content: "\f75f";
 }
 .fa-smoking:before {
   content: "\f48d";
@@ -3663,6 +3722,12 @@ template {
 }
 .fa-telegram-plane:before {
   content: "\f3fe";
+}
+.fa-temperature-high:before {
+  content: "\f769";
+}
+.fa-temperature-low:before {
+  content: "\f76b";
 }
 .fa-tencent-weibo:before {
   content: "\f1d5";
@@ -4054,6 +4119,9 @@ template {
 .fa-volume-up:before {
   content: "\f028";
 }
+.fa-vote-yea:before {
+  content: "\f772";
+}
 .fa-vr-cardboard:before {
   content: "\f729";
 }
@@ -4068,6 +4136,9 @@ template {
 }
 .fa-warehouse:before {
   content: "\f494";
+}
+.fa-water:before {
+  content: "\f773";
 }
 .fa-weebly:before {
   content: "\f5cc";
@@ -4227,7 +4298,7 @@ template {
   width: auto;
 }
 /*!
- * Font Awesome Free 5.4.2 by @fontawesome - https://fontawesome.com
+ * Font Awesome Free 5.5.0 by @fontawesome - https://fontawesome.com
  * License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
  */
 @font-face {
@@ -4243,7 +4314,7 @@ template {
   font-weight: 900;
 }
 /*!
- * Font Awesome Free 5.4.2 by @fontawesome - https://fontawesome.com
+ * Font Awesome Free 5.5.0 by @fontawesome - https://fontawesome.com
  * License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
  */
 @font-face {
@@ -4677,22 +4748,7 @@ img.responsive {
      */
 }
 html.vgrid .inner-wrap {
-  background: url("../img/theme/grid950x24x30x10-nomargin.png") repeat-y fixed center center;
-  background-size: 100% auto;
-}
-@media (min-width: 1100px) {
-  html.vgrid .inner-wrap {
-    background-size: 1100px auto;
-  }
-}
-html.vgrid .inner-wrap.inner-wrap-header {
-  background: url("../img/theme/grid950x24x30x10-nomargin.png") repeat-y fixed center center;
-  background-size: 100% auto;
-}
-@media (min-width: 100%) {
-  html.vgrid .inner-wrap.inner-wrap-header {
-    background-size: 100% auto;
-  }
+  background-color: black;
 }
 /**
  * Typographic grid in namespace #desinax-hgrid.
@@ -5181,13 +5237,12 @@ fieldset {
 }
 html {
   overflow-y: scroll;
-  background-color: #424242;
 }
 body {
   margin: 0;
   padding: 0;
-  color: #111;
-  background-color: #fff;
+  color: black;
+  background-color: transparent !important;
   font: 100.01%/1.5 Verdana, Geneva, sans-serif;
 }
 h1,
@@ -5243,7 +5298,7 @@ h3 {
   font-weight: normal;
   margin-top: 48px;
   margin-bottom: 23px;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid #eee;
 }
 h4 {
   font-size: 1.25em;
@@ -5468,6 +5523,35 @@ hr::after {
 }
 img {
   max-width: 100%;
+}
+.tint {
+  position: relative;
+  float: left;
+  cursor: pointer;
+}
+.tint:before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 255, 255, 0.5);
+  -moz-transition: background 0.3s linear;
+  -webkit-transition: background 0.3s linear;
+  -o-transition: background 0.3s linear;
+  transition: background 0.3s linear;
+}
+.tint:hover:before {
+  background: none;
+}
+.inner-wrap-flash {
+  width: 100%;
+  max-width: 100% !important;
+}
+.inner-wrap-flash img {
+  width: 100%;
 }
 /**
  * Layout style for general structure of header, navbar, main, footer
@@ -5711,7 +5795,6 @@ a.rm-button.rm-clicked .rm-button-face-2 {
   display: block;
 }
 .rm-max .rm-small .rm-button {
-  font-size: 2em;
   color: inherit;
 }
 .rm-max .rm-small .rm-button.rm-clicked {
@@ -6086,7 +6169,7 @@ a.rm-button.rm-clicked .rm-button-face-2 {
  * Base
  */
 /** ==============================================================
- * Header 
+ * Header
  */
 /**
  * A header style for dbwebb.se.
@@ -6312,7 +6395,7 @@ a.rm-button.rm-clicked .rm-button-face-2 {
  * A footer style for dbwebb.se.
  */
 .outer-wrap-footer {
-  background-color: #424242;
+  background-color: white;
   padding-top: 24px;
   padding-bottom: 48px;
 }
@@ -6451,16 +6534,36 @@ a.rm-button.rm-clicked .rm-button-face-2 {
   font-family: Cambria, Georgia, Times, 'Times New Roman', serif;
   font-size: 1.5em;
   line-height: 0;
+  color: white;
 }
 .rm-menu-button {
   font-size: 1.5em;
 }
 .rm-desktop li ul {
   background-color: #fff;
+  color: black;
 }
 .wrap-sidebar .block h4 {
   border-top: 1px solid #ccc;
   background-image: linear-gradient(to right, #fff, #ccc);
+}
+.centerTitle {
+  left: 50%;
+  transform: translate(-50%, 0);
+  z-index: 1;
+  font-size: 10rem;
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 700;
+  font-size: 10vw;
+  text-transform: uppercase;
+  margin: 0;
+  color: white;
+  text-shadow: 1px 1px 0 #e6616b, 2px 2px 0 rgba(181, 76, 84, 0.95), 3px 3px 0 rgba(181, 76, 84, 0.9), 4px 4px 0 rgba(181, 76, 84, 0.85), 5px 5px 0 rgba(181, 76, 84, 0.8), 6px 6px 0 rgba(181, 76, 84, 0.75), 7px 7px 0 rgba(181, 76, 84, 0.7), 8px 8px 0 rgba(181, 76, 84, 0.65), 9px 9px 0 rgba(181, 76, 84, 0.6), 10px 10px 0 rgba(181, 76, 84, 0.55), 11px 11px 0 rgba(181, 76, 84, 0.5), 12px 12px 0 rgba(181, 76, 84, 0.45), 13px 13px 0 rgba(181, 76, 84, 0.4), 14px 14px 0 rgba(181, 76, 84, 0.35), 15px 15px 0 rgba(181, 76, 84, 0.3), 16px 16px 0 rgba(181, 76, 84, 0.2), 17px 17px 0 rgba(181, 76, 84, 0.15), 18px 18px 0 rgba(181, 76, 84, 0.1);
+}
+.redDiv {
+  min-height: 10rem;
+  background-color: #e6616b;
+  text-align: center;
 }
 /**
  * My settings.
