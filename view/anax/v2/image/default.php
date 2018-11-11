@@ -30,7 +30,11 @@ if (isset($href)) {
     $hrefStart = "<a $href $title>";
     $hrefEnd = "</a>";
 }
-
+$titleFlash =  "Sam-corp";
 ?><?= $hrefStart ?>
-<img <?= classList($class) ?> src="<?= asset($src) ?>"<?= $alt ?>>
+
+<div class="redDiv">
+<span class="centerTitle"> <?php echo $titleFlash   ?> </span>
+<!-- <img <?= classList($class) ?> src="<?= asset($src) ?>"<?= $alt ?>> -->
+</div>
 <?= $hrefEnd ?>

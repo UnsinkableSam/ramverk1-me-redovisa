@@ -308,28 +308,6 @@ template {
   display: none;
 }
 /**
- * header color.
- */
-.outer-wrap-header {
-  background-color: #e6616b;
-  color: black;
-  margin-bottom: 0rem !important;
-  height: 5rem !important;
-}
-.outer-wrap-footer {
-  background-color: #e6616b !important;
-  left: 0 !important;
-  bottom: 0 !important;
-  width: 100% !important;
-  text-align: center !important;
-}
-.outer-wrap-footer p {
-  color: white;
-}
-.outer-wrap-footer h4 {
-  color: white;
-}
-/**
  * Font Awesome.
  */
 /*!
@@ -4874,13 +4852,6 @@ body {
 html.hgrid .inner-wrap {
   background-image: url("../img/theme/magic-number-24.png");
 }
-.region-header-col-1 {
-  width: 0rem !important;
-}
-.region-header-col-2 {
-  float: none !important;
-  width: 100% !important;
-}
 /**
  * Links and navigation
  * @TODO check and clean up
@@ -5253,8 +5224,8 @@ html {
 body {
   margin: 0;
   padding: 0;
-  color: black;
-  background-color: transparent !important;
+  color: #111;
+  background-color: #fff !important;
   font: 100.01%/1.5 Verdana, Geneva, sans-serif;
 }
 h1,
@@ -6407,7 +6378,7 @@ a.rm-button.rm-clicked .rm-button-face-2 {
  * A footer style for dbwebb.se.
  */
 .outer-wrap-footer {
-  background-color: white;
+  background-color: #424242;
   padding-top: 24px;
   padding-bottom: 48px;
 }
@@ -6546,36 +6517,16 @@ a.rm-button.rm-clicked .rm-button-face-2 {
   font-family: Cambria, Georgia, Times, 'Times New Roman', serif;
   font-size: 1.5em;
   line-height: 0;
-  color: white;
 }
 .rm-menu-button {
   font-size: 1.5em;
 }
 .rm-desktop li ul {
   background-color: #fff;
-  color: black;
 }
 .wrap-sidebar .block h4 {
   border-top: 1px solid #ccc;
   background-image: linear-gradient(to right, #fff, #ccc);
-}
-.centerTitle {
-  left: 50%;
-  transform: translate(-50%, 0);
-  z-index: 1;
-  font-size: 10rem;
-  font-family: 'Work Sans', sans-serif;
-  font-weight: 700;
-  font-size: 10vw;
-  text-transform: uppercase;
-  margin: 0;
-  color: white;
-  text-shadow: 1px 1px 0 #e6616b, 2px 2px 0 rgba(181, 76, 84, 0.95), 3px 3px 0 rgba(181, 76, 84, 0.9), 4px 4px 0 rgba(181, 76, 84, 0.85), 5px 5px 0 rgba(181, 76, 84, 0.8), 6px 6px 0 rgba(181, 76, 84, 0.75), 7px 7px 0 rgba(181, 76, 84, 0.7), 8px 8px 0 rgba(181, 76, 84, 0.65), 9px 9px 0 rgba(181, 76, 84, 0.6), 10px 10px 0 rgba(181, 76, 84, 0.55), 11px 11px 0 rgba(181, 76, 84, 0.5), 12px 12px 0 rgba(181, 76, 84, 0.45), 13px 13px 0 rgba(181, 76, 84, 0.4), 14px 14px 0 rgba(181, 76, 84, 0.35), 15px 15px 0 rgba(181, 76, 84, 0.3), 16px 16px 0 rgba(181, 76, 84, 0.2), 17px 17px 0 rgba(181, 76, 84, 0.15), 18px 18px 0 rgba(181, 76, 84, 0.1);
-}
-.redDiv {
-  min-height: 20rem;
-  background-color: #e6616b;
-  text-align: center;
 }
 /**
  * My settings.

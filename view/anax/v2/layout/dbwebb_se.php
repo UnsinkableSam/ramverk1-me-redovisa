@@ -127,6 +127,22 @@ $route = "route-" . str_replace("/", "-", $di->get("request")->getRoute());
 
 
 
+
+
+<!-- flash -->
+<?php if (regionHasContent("flash")) : ?>
+<div class="outer-wrap outer-wrap-flash">
+    <div class="inner-wrap inner-wrap-flash">
+        <div class="row">
+            <div class="region-flash">
+                <?php renderRegion("flash") ?>
+            </div>
+        </div>
+    </div>
+</div>
+<?php endif; ?>
+
+
 <!-- navbar -->
 <?php if (regionHasContent("navbar")) : ?>
 <div class="outer-wrap outer-wrap-navbar">
@@ -142,18 +158,6 @@ $route = "route-" . str_replace("/", "-", $di->get("request")->getRoute());
 
 
 
-<!-- flash -->
-<?php if (regionHasContent("flash")) : ?>
-<div class="outer-wrap outer-wrap-flash">
-    <div class="inner-wrap inner-wrap-flash">
-        <div class="row">
-            <div class="region-flash">
-                <?php renderRegion("flash") ?>
-            </div>
-        </div>
-    </div>
-</div>
-<?php endif; ?>
 
 
 

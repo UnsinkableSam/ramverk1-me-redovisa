@@ -20,6 +20,7 @@
 	background-color:#e6616b;
 	color:black;
 	margin-bottom: 0rem !important;
+	height: 5rem !important;
 }
 
 
@@ -32,6 +33,11 @@
 	h4 {
 	color:white;
 	}
+	// position: fixed !important;
+  left: 0 !important;
+  bottom: 0 !important;
+  width: 100% !important;
+  text-align: center !important;
 }
 
 /**
@@ -128,8 +134,16 @@ html.hgrid .inner-wrap {
     #desinax-hgrid.showGrid(@gridImage);
 }
 
+.region-header-col-1 {
+	width: 0rem !important;
+}
 
 
+
+.region-header-col-2 {
+	float: none !important;
+	width: 100% !important;
+}
 /**
  * Links and navigation
  * @TODO check and clean up
@@ -278,11 +292,13 @@ html.hgrid .inner-wrap {
 }
 
 .redDiv {
-	min-height: 10rem;
+	min-height: 20rem;
 	background-color: #e6616b;
 	text-align: center;
 
 }
+
+
 
 /**
  * My settings.
