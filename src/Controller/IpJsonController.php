@@ -2,6 +2,9 @@
 
 namespace Anax\Controller;
 
+
+
+
 use Anax\Commons\ContainerInjectableInterface;
 use Anax\Commons\ContainerInjectableTrait;
 
@@ -18,6 +21,7 @@ use Anax\Commons\ContainerInjectableTrait;
  */
 class IpJsonController implements ContainerInjectableInterface
 {
+
     use ContainerInjectableTrait;
 
 
@@ -39,12 +43,7 @@ class IpJsonController implements ContainerInjectableInterface
          */
     public function indexAction() : object
     {
-
-
           $title = " | Ip Json API";
-
-
-
           $page = $this->di->get("page");
           $page->add(
               "anax/v2/ip-validator/ipApi",
@@ -62,74 +61,37 @@ class IpJsonController implements ContainerInjectableInterface
 
 
 
-    public function validateipActionGet($ip) : array
+    public function validateipActionGet($ip = null) : array
     {
+
+      if ($this->di->request->getGet("ip")) {
+        $ipInfo["IP"] = $this->di->request->getGet("ip");
+        $ip = $this->di->request->getGet("ip");
+      } else {
         $ipInfo["IP"] = $ip;
-
-        if (filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_IPV4)) {
-            $ipInfo["Type"] = "Valid IPv4";
-            $ipInfo["Domain"] = gethostbyaddr($ip);
-            $ipInfoJson = json_encode($ipInfo, JSON_PRETTY_PRINT);
-            return [$ipInfoJson];
-        } else {
-            if (filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_IPV6)) {
-                $ipInfo["Type"] = "Valid IPv6";
-                $ipInfo["Domain"] = gethostbyaddr($ip);
-                $ipInfoJson = json_encode($ipInfo, JSON_PRETTY_PRINT);
-                return [$ipInfoJson];
-            }
-        }
-        $ipInfo["Type"] = "Invalid IP";
-        $ipInfoJson = json_encode($ipInfo, JSON_PRETTY_PRINT);
-        return [$ipInfoJson];
-
-        // $json = [
-        //     "ip" => "$value",
-        // ];
-        // return [$json];
+      }
+      $bob =  $this->di->get("validateApi");
+      $res = $bob->validateipActionGet($ipInfo["IP"]);
+      return $res;
     }
 
 
 
 
-public function validateipActionPost($ip) : array
+public function validateipActionPost($ip = null) : array
 {
-    $ipInfo["IP"] = $ip;
-
-    if (filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_IPV4)) {
-        $ipInfo["Type"] = "Valid IPv4";
-        $ipInfo["Domain"] = gethostbyaddr($ip);
-        $ipInfoJson = json_encode($ipInfo, JSON_PRETTY_PRINT);
-        return [$ipInfoJson];
+    if ($this->di->request->getPost("ip")) {
+      $ipInfo["IP"] = $this->di->request->getPost("ip");
+      $ip = $this->di->request->getPost("ip");
     } else {
-        if (filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_IPV6)) {
-            $ipInfo["Type"] = "Valid IPv6";
-            $ipInfo["Domain"] = gethostbyaddr($ip);
-            $ipInfoJson = json_encode($ipInfo, JSON_PRETTY_PRINT);
-            return [$ipInfoJson];
-        }
+      $ipInfo["IP"] = $ip;
     }
-    $ipInfo["Type"] = "Invalid IP";
-    $ipInfoJson = json_encode($ipInfo, JSON_PRETTY_PRINT);
-    return [$ipInfoJson];
+    $bob =  $this->di->get("validateApi");
+    $res = $bob->validateipActionGet($ipInfo["IP"]);
+    return $res;
 
-    // $json = [
-    //     "ip" => "$value",
-    // ];
-    // return [$json];
+
 }
 
 
-
-
-public function testipActionGet($ip) : string
-{
-    return "hello" . $ip->$ip;
-
-
-    // $json = [
-    //     "ip" => "$value",
-    // ];
-    // return [$json];
-}
 }

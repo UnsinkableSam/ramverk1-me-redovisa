@@ -48,37 +48,23 @@ class IpController implements ContainerInjectableInterface
 
 
 
-    public function validateipActionGet($ip)
-    {
 
-        $ipInfo = [];
-        // preg_match('/^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])$/',
-        // $value, $matches, PREG_OFFSET_CAPTURE);
-        // // print_r($matches);
-        // if ($matches) {
-        //   array_push("Valid ip" : "Yes");
-        // }
-        // else {
-        //   array_push("Valid ip" : "No");
-        // }
-        $ipInfo["IP"] = $ip;
 
-        if (filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_IPV4)) {
-            $ipInfo["Type"] = "Valid IPv4";
-            $ipInfo["Domain"] = gethostbyaddr($ip);
-            $ipInfoJson = json_encode($ipInfo, JSON_PRETTY_PRINT);
-            return $ipInfoJson;
-        } else {
-            if (filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_IPV6)) {
-                $ipInfo["Type"] = "Valid IPv6";
-                $ipInfo["Domain"] = gethostbyaddr($ip);
-                $ipInfoJson = json_encode($ipInfo, JSON_PRETTY_PRINT);
-                return $ipInfoJson;
-            }
+
+        public function validateipActionGet($ip = null) : array
+        {
+
+          print_r($this->di);
+          //
+          // if ($this->di->request->getGet("ip")) {
+          //   $ipInfo["IP"] = $this->di->request->getGet("ip");
+          //   $ip = $this->di->request->getGet("ip");
+          // } else {
+          //   $ipInfo["IP"] = $ip;
+          // }
+          $bob =  $this->di->get("validateApi");
+          $res = $bob->validateipActionGet($ip);
+          return $res;
         }
-        $ipInfo["Type"] = "Invalid IP";
-        $ipInfo["Domain"] = "None";
-        $ipInfoJson = json_encode($ipInfo, JSON_PRETTY_PRINT);
-        return $ipInfoJson;
-    }
+
 }

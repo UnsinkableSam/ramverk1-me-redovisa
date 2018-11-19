@@ -19,7 +19,7 @@ namespace Anax\View;
         <p>
             <label for="stylechooser">Select the style to activate it:<br>
                 <select name="stylechooser" onchange="form.submit();">
-                    <option value="none">No style is selected, using default.</option>
+                    <option value="dbwebb-se_v2.min.css">No style is selected, using default.</option>
                     <?php foreach ($styles as $key => $value) :
                         $selected = $key === $activeStyle ? "selected=\"selected\"" : null;
                         ?>
