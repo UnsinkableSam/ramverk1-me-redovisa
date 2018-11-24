@@ -4,10 +4,10 @@
  */
  return [
      "services" => [
-         "validate" => [
+         "ExternalApi" => [
              "shared" => true,
              "callback" => function () {
-                 $validate = new \Anax\IpValidators\InternalValidator();
+                 $validate = new \Anax\IpValidators\ExternalApi();
                  return $validate;
              },
          ],

@@ -4,11 +4,11 @@
  */
  return [
      "services" => [
-         "validate" => [
+         "apikey" => [
              "shared" => true,
              "callback" => function () {
-                 $validate = new \Anax\IpValidators\InternalValidator();
-                 return $validate;
+                 $dirs = "ae68fdd7e0843f6cbbaf81475db34e24";
+                 return $dirs;
              },
          ],
      ],
