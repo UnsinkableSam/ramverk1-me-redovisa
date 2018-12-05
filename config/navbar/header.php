@@ -49,14 +49,62 @@ return [
             "title" => "Verktyg och möjligheter för utveckling.",
         ],
         [
-            "text" => "Ip-validator",
-            "url" => "ip-validator",
-            "title" => "Ip validator",
+            "text" => "kmom01",
+            "url" => "InternalController",
+            "title" => "kmom02",
+            "submenu" => [
+                "items" => [
+                    [
+                        "text" => "Internal validate ip ",
+                        "url" => "InternalController",
+                        "title" => "Internal validate ip  ",
+                    ],
+                    [
+                        "text" => "Internal api ip validator ",
+                        "url" => "JsonController",
+                        "title" => "Internal api ip validator ",
+                    ],
+                ],
+            ],
         ],
         [
-            "text" => "Ip-Api",
-            "url" => "IpJsonController",
-            "title" => "Ip Api ",
+            "text" => "kmom02",
+            "url" => "apiExternal",
+            "title" => "kmom02",
+            "submenu" => [
+                "items" => [
+                    [
+                        "text" => "External Api",
+                        "url" => "apiExternal",
+                        "title" => "External Api ",
+                    ],
+                    [
+                        "text" => "Rest External Api ",
+                        "url" => "RestApiExternal",
+                        "title" => "Rest External Api ",
+                    ],
+                ],
+            ],
+        ],
+        [
+            "text" => "kmom03",
+            "url" => "darkSkyController",
+            "title" => "kmom03",
+            "submenu" => [
+                "items" => [
+                    [
+                        "text" => "Darksky api",
+                        "url" => "darkSkyController",
+                        "title" => "Darksky api",
+                    ],
+                    [
+                        "text" => "Darksky api json",
+                        "url" => "darkSkyController/indexJson",
+                        "title" => "Darksky api json",
+                    ],
+
+                ],
+            ],
         ],
     ],
 ];

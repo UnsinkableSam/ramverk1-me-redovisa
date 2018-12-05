@@ -13,13 +13,13 @@ return [
 
     // All routes in order
     "routes" => [
-
         [
-            "info" => "Ip validator Post",
-            "mount" => "JsonController",
-            "handler" => "\Anax\Controller\IpJsonController",
+            "info" => "Internal ip validator",
+            "mount" => "InternalController",
+            "handler" => "\Anax\Controller\InternalController",
 
         ],
+
 
     ]
 ];

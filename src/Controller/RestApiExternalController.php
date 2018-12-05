@@ -16,7 +16,7 @@ use Anax\Commons\ContainerInjectableTrait;
  * The controller is mounted on a particular route and can then handle all
  * requests for that mount point.
  */
-class IpJsonController implements ContainerInjectableInterface
+class RestApiExternalController implements ContainerInjectableInterface
 {
 
     use ContainerInjectableTrait;
@@ -40,16 +40,17 @@ class IpJsonController implements ContainerInjectableInterface
          */
     public function indexAction() : object
     {
-
           $title = " | Ip Json API";
           $page = $this->di->get("page");
           $page->add(
-              "anax/v2/ip-validator/ipApi",
+              "anax/v2/ip-validator/RestApiExternal",
               [
                   "header" => "hello",
                   "text" => "text",
               ]
           );
+
+
           return $page->render([
               "title" => "$title"
           ]);
@@ -57,40 +58,52 @@ class IpJsonController implements ContainerInjectableInterface
 
 
 
-    public function validateipActionGet($ipAdress = null) : array
+    public function validateipActionGet($ipAdress = null) : string
     {
-
-
-        //
+        $keykey = $this->di->get("apikey");
         // if ($this->di->get("request")->getGet("ip")) {
         //     $ipInfo["IP"] = $this->di->get("request")->getGet("ip");
         //     $ipAdress = $this->di->get("request")->getGet("ip");
         // } else {
         //     $ipInfo["IP"] = $ipAdress;
         // }
-          $ipInfo["IP"] = $this->di->get("request")->getPost("ip") ?? $ipAdress;
-          $bob =  $this->di->get("validateApi");
-          $res = $bob->validateipActionGet($ipInfo["IP"]);
+        $ipInfo["IP"] = $this->di->get("request")->getGet("ip") ?? $ipAdress;
+        $bob =  $this->di->get("ExternalApi");
+        $res = $bob->validateipJsonActionGet($ipInfo["IP"], $keykey);
 
-        return $res;
+
+        // $json_string = json_encode($res, JSON_PRETTY_PRINT);
+
+        // $json = json_decode($res);
+
+        $res_string = json_encode($res, JSON_PRETTY_PRINT);
+
+        return $res_string;
     }
 
 
 
 
-    public function validateipActionPost($ipAdress = null) : array
+    public function validateipActionPost($ipAdress = null) : string
     {
-
-        // if ($this->di->get("request")->getPost("ip")) {
-        //     $ipInfo["IP"] = $this->di->get("request")->getPost("ip");
-        //     $ipAdress = $this->di->get("request")->getPost("ip");
+        $keykey = $this->di->get("apikey");
+        // if ($this->di->request->getPost("ip")) {
+        //     $ipInfo["IP"] = $this->di->request->getPost("ip");
+        //     $ipAdress = $this->di->request->getPost("ip");
         // } else {
         //     $ipInfo["IP"] = $ipAdress;
         // }
-        $ipInfo["IP"] = $this->di->get("request")->getPost("ip") ?? $ipAdress;
-        $bob =  $this->di->get("validateApi");
-        $res = $bob->validateipActionGet($ipInfo["IP"]);
+        $ipInfo["IP"] = $this->di->get("request")->getGet("ip") ?? $ipAdress;
+        $bob =  $this->di->get("ExternalApi");
+        $res = $bob->validateipJsonActionGet($ipInfo["IP"], $keykey);
 
-        return $res;
+
+        // $json_string = json_encode($res, JSON_PRETTY_PRINT);
+
+        // $json = json_decode($res);
+
+        $res_string = json_encode($res, JSON_PRETTY_PRINT);
+
+        return $res_string;
     }
 }

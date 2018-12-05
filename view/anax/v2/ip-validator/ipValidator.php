@@ -1,6 +1,7 @@
 <?php
+namespace Anax\View ;
 
-namespace Anax\View;
+use Anax\Controller;
 
 /**
  * Template file to render a view.
@@ -8,27 +9,16 @@ namespace Anax\View;
 
 // Show incoming variables and view helper functions
 //echo showEnvironment(get_defined_vars(), get_defined_functions());
-$ipC = new \Anax\Controller\ipController();
+// public function testIndex() {
 
-$ip = $di->request->getGet("ip");
-$validIp = null;
-
-if ($ip) {
-    $validIp = $ipC->validateipActionGet($ip);
-}
-
+// print_r($di->request->getGet("ip"));
 
 ?>
 
-<h1>Ip validator</h1>
-<form class=""   method="get">
+<h3>Get method</h3>
+<form action="<?php echo url("InternalController/validateip/ ") ?>"  method="get">
   <input type="text" name="ip" value="">
-  <input type="submit">
+  <button type="submit" >Send</button>
 </form>
 
-<h1>IP information</h1>
-<?php $validIp = json_decode($validIp, true); ?>
-
-<h3><?php echo "IP: " .  $validIp["IP"] ?></h3>
-<h3><?php echo "IP-Type: " .  $validIp["Type"] ?></h3>
-<h3><?php echo "Domain: " .  $validIp["Domain"] ?></h3>
+<!-- How to fix header problem where we redirect! !!  -->

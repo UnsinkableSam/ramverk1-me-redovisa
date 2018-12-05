@@ -15,9 +15,9 @@ return [
     "routes" => [
 
         [
-            "info" => "Ip validator Post",
-            "mount" => "JsonController",
-            "handler" => "\Anax\Controller\IpJsonController",
+            "info" => "external Ip validator",
+            "mount" => "RestApiExternal",
+            "handler" => "\Anax\Controller\RestApiExternalController",
 
         ],
 

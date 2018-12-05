@@ -16,7 +16,7 @@ use Anax\Commons\ContainerInjectableTrait;
  * The controller is mounted on a particular route and can then handle all
  * requests for that mount point.
  */
-class IpJsonController implements ContainerInjectableInterface
+class ApiExternalController implements ContainerInjectableInterface
 {
 
     use ContainerInjectableTrait;
@@ -40,57 +40,64 @@ class IpJsonController implements ContainerInjectableInterface
          */
     public function indexAction() : object
     {
-
           $title = " | Ip Json API";
           $page = $this->di->get("page");
           $page->add(
-              "anax/v2/ip-validator/ipApi",
+              "anax/v2/ip-validator/apiExternal",
               [
                   "header" => "hello",
                   "text" => "text",
               ]
           );
+
+
           return $page->render([
               "title" => "$title"
           ]);
     }
 
 
-
-    public function validateipActionGet($ipAdress = null) : array
+    public function externalInfoAction($ipAdress = null) : object
     {
 
+        $title = " | Ip info";
+        $page = $this->di->get("page");
+        $page->add("anax/v2/ip-validator/externalInfo", [
+          "ip" => $this->di->get("request")->getGet("ip"),
+          "type" => $this->di->get("request")->getGet("type"),
+          "country" => $this->di->get("request")->getGet("country"),
+          "latitude" => $this->di->get("request")->getGet("latitude"),
+          "longitude" => $this->di->get("request")->getGet("longitude")
+        ]);
 
-        //
-        // if ($this->di->get("request")->getGet("ip")) {
-        //     $ipInfo["IP"] = $this->di->get("request")->getGet("ip");
-        //     $ipAdress = $this->di->get("request")->getGet("ip");
-        // } else {
-        //     $ipInfo["IP"] = $ipAdress;
-        // }
-          $ipInfo["IP"] = $this->di->get("request")->getPost("ip") ?? $ipAdress;
-          $bob =  $this->di->get("validateApi");
-          $res = $bob->validateipActionGet($ipInfo["IP"]);
 
-        return $res;
+        return $page->render([
+          "title" => "$title"
+        ]);
     }
 
-
-
-
-    public function validateipActionPost($ipAdress = null) : array
+    public function validateipActionGet($ipAdress = null) : void
     {
+        $keykey = $this->di->get("apikey");
 
-        // if ($this->di->get("request")->getPost("ip")) {
-        //     $ipInfo["IP"] = $this->di->get("request")->getPost("ip");
-        //     $ipAdress = $this->di->get("request")->getPost("ip");
+        // if ($this->di->get("request")->getGet("ip")) {
+        //     $ipInfo["IP"] = $this->di->get("request")->getGet("ip") ?? $ipAdress;
+        //     // $ipAdress = $this->di->request->getGet("ip");
         // } else {
         //     $ipInfo["IP"] = $ipAdress;
         // }
-        $ipInfo["IP"] = $this->di->get("request")->getPost("ip") ?? $ipAdress;
-        $bob =  $this->di->get("validateApi");
-        $res = $bob->validateipActionGet($ipInfo["IP"]);
+        $ipInfo["IP"] = $this->di->get("request")->getGet("ip") ?? $ipAdress;
+        $apiEx =  $this->di->get("ExternalApi");
+        $res = $apiEx->validateipActionGet($ipInfo["IP"], $keykey);
+        $obj = $res;
+        $obj = json_decode($res);
 
-        return $res;
+
+
+        $this->di->get("response")->redirect("apiExternal/externalInfo/?ip=" . $obj->ip
+        . "&type=" . $obj->type . "&country=" . $obj->country_name
+        . "&longitude=" . $obj->longitude . "&latitude=" . $obj->latitude);
+
+
     }
 }
