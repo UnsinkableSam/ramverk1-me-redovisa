@@ -8,7 +8,7 @@ use PHPUnit\Framework\TestCase;
 /**
  * Test the SampleJsonController.
  */
-class darkSkyControllerTest extends TestCase
+class DarkSkyControllerTest extends TestCase
 {
 
 
@@ -28,7 +28,7 @@ class darkSkyControllerTest extends TestCase
         $di = $this->di;
 
         // Setup the controller
-        $this->controller = new darkSkyController();
+        $this->controller = new DarkSkyController();
         $this->controller->setDI($this->di);
         //$this->controller->initialize();
     }
@@ -93,6 +93,4 @@ class darkSkyControllerTest extends TestCase
         print_r(gettype($testObj));
         $this->assertContains("string", $testObj);
     }
-
-
 }

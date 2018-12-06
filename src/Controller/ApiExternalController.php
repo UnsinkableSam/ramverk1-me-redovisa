@@ -97,7 +97,5 @@ class ApiExternalController implements ContainerInjectableInterface
         $this->di->get("response")->redirect("apiExternal/externalInfo/?ip=" . $obj->ip
         . "&type=" . $obj->type . "&country=" . $obj->country_name
         . "&longitude=" . $obj->longitude . "&latitude=" . $obj->latitude);
-
-
     }
 }

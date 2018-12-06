@@ -1,7 +1,6 @@
 <?php
 namespace Anax\View;
 
-
 $cord = $longitude .  "%2C"  . $latitude  ."&amp;layer=mapnik&amp;marker=" . $latitude . "%2C" . $longitude  . "";
 print_r($cord);
 ?>
