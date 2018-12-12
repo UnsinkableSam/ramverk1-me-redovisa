@@ -15,10 +15,11 @@ return [
     "routes" => [
 
         [
-            "info" => "Dark sky Controller",
-            "mount" => "darkSkyController",
-            "handler" => "\Anax\Controller\DarkSkyController",
+            "info" => "external Ip validator",
+            "mount" => "apiExternal",
+            "handler" => "\Anax\Controller\ApiExternalController",
 
         ],
+
     ]
 ];

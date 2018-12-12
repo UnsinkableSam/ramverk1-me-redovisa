@@ -4,10 +4,10 @@
  */
  return [
      "services" => [
-         "apikeyDarkSky" => [
+         "apikey" => [
              "shared" => true,
              "callback" => function () {
-                 $dirs = "7a8506da4d799f5eb16c13da8d0e55c6";
+                 $dirs = "ae68fdd7e0843f6cbbaf81475db34e24";
                  return $dirs;
              },
          ],

@@ -13,12 +13,13 @@ return [
 
     // All routes in order
     "routes" => [
-
         [
-            "info" => "Dark sky Controller",
-            "mount" => "darkSkyController",
-            "handler" => "\Anax\Controller\DarkSkyController",
+            "info" => "Internal ip validator",
+            "mount" => "InternalController",
+            "handler" => "\Anax\Controller\InternalController",
 
         ],
+
+
     ]
 ];

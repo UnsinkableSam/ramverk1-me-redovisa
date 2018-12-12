@@ -57,7 +57,7 @@ class ApiExternalController implements ContainerInjectableInterface
     }
 
 
-    public function externalInfoAction($ipAdress = null) : object
+    public function externalInfoAction() : object
     {
 
         $title = " | Ip info";

@@ -23,6 +23,7 @@ class DarkSkyControllerTest extends TestCase
         // Setup di
         $this->di = new DIFactoryConfig();
         $this->di->loadServices(ANAX_INSTALL_PATH . "/config/di");
+        $this->di->loadServices(ANAX_INSTALL_PATH . "/test/config/di");
 
         // View helpers uses the global $di so it needs its value
         $di = $this->di;
@@ -56,6 +57,7 @@ class DarkSkyControllerTest extends TestCase
 
     public function testDarkActionPost()
     {
+
         $res = $this->controller->darkActionPost("74.125.224.72");
         $testObj = gettype($res);
         print_r($testObj);

@@ -16,7 +16,7 @@ class DarkSkyController implements ContainerInjectableInterface
           $title = " | Ip Json API";
           $page = $this->di->get("page");
           $page->add(
-              "anax/v2/darkSkyApi/darkSkyApi",
+              "anax/v2/DarkskyApi/darkSkyApi",
               [
                   "header" => "hello",
                   "text" => "text",
@@ -34,7 +34,7 @@ class DarkSkyController implements ContainerInjectableInterface
           $title = " | Ip Json API";
           $page = $this->di->get("page");
           $page->add(
-              "anax/v2/darkSkyApi/darkSkyApiJson",
+              "anax/v2/DarkskyApi/darkSkyApiJson",
               [
                   "header" => "hello",
                   "text" => "text",
@@ -76,11 +76,11 @@ class DarkSkyController implements ContainerInjectableInterface
         $coordinates = (object) ["latitude" => $obj->latitude];
         $coordinates->longitude = $obj->longitude;
 
-        $darkClass = new \Anax\darkSkyApi\darkSky();
+        $darkClass = new \Anax\darkSkyApi\DarkSky();
         array_push($array, $coordinates);
         $res = $darkClass::wheatherActionGet($array, $darkSkyKey);
 
-        $dates = $darkClass::wheatherSevenActionGet(30, $time, $array, $darkSkyKey);
+        $dates = $darkClass::wheatherSevenActionGet(30, $time);
         $resThirtyDaysRequest = $darkClass::wheatherThirtyActionGet($array, $dates, $darkSkyKey);
 
           // try {
@@ -92,7 +92,7 @@ class DarkSkyController implements ContainerInjectableInterface
           //   return $res[0];
           // }
 
-
+        $streetname = $darkClass->streetActionGet($coordinates->longitude, $coordinates->latitude);
         //
         // $refinedDates = [];
         //
@@ -103,12 +103,13 @@ class DarkSkyController implements ContainerInjectableInterface
           $title = " | Ip Json API";
           $page = $this->di->get("page");
           $page->add(
-              "anax/v2/darkSkyApi/darkRes",
+              "anax/v2/DarkskyApi/darkRes",
               [
                   "header" => "hello",
                   "res" => $res,
                   "ogDate" => $time,
-                  "resThirty" => $resThirtyDaysRequest
+                  "resThirty" => $resThirtyDaysRequest,
+                  "streetname" => $streetname
               ]
           );
           return $page->render([
@@ -146,7 +147,7 @@ class DarkSkyController implements ContainerInjectableInterface
         $coordinates->longitude = $obj->longitude;
 
 
-        $darkClass = new \Anax\darkSkyApi\darkSky();
+        $darkClass = new \Anax\darkSkyApi\DarkSky();
         array_push($array, $coordinates);
         $res = $darkClass::wheatherActionGet($array, $darkSkyKey);
 
@@ -155,7 +156,7 @@ class DarkSkyController implements ContainerInjectableInterface
 
 
 
-        $dates = $darkClass::wheatherSevenActionGet(30, $time, $array);
+        $dates = $darkClass::wheatherSevenActionGet(30, $time);
         $resThirtyDaysRequest = $darkClass::wheatherThirtyActionGet($array, $dates, $darkSkyKey);
           // try {
           //   if (array_key_exists("code",$res)) {

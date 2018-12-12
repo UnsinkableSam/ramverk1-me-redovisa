@@ -12,5 +12,10 @@
     },
     "require-dev": {
         "phpunit/phpunit": "^7"
-    }
+    },
+
+    "require": {
+    "anax/anax-ramverk1-me": "^1.0.0",
+    "danak/anaxmodule": "^v3.0.2"
+}
 }

@@ -3,10 +3,10 @@ namespace Anax\darkSkyApi;
 
 class DarkSky
 {
-    public static function wheatherSevenActionGet($days, $time, $array, $accessKey = "9fe0ef6d3f7319dd6198b0b4584a1011")
+    public static function wheatherSevenActionGet($days, $time)
     {
         $timeRefined = $time;
-        $refinedDates = [];
+
         $dates = [];
         for ($i=0; $i < $days; $i++) {
             $date = strtotime($timeRefined . "-" . $i ."day");
@@ -23,23 +23,23 @@ class DarkSky
             ${"ch$j"}  = curl_init('https://api.darksky.net/forecast/'.$accessKey.'/'.$res[0]->latitude .
                   ','. $res[0]->longitude . "," . $time[$j] . "?exclude=minutely?exclude=hourly");
         }
-          $mh = curl_multi_init();
+          $mhcurl = curl_multi_init();
         for ($i=0; $i < count($time); $i++) {
             curl_setopt(${"ch$i"}, CURLOPT_RETURNTRANSFER, true);
-            curl_multi_add_handle($mh, ${"ch$i"});
+            curl_multi_add_handle($mhcurl, ${"ch$i"});
         }
           $responseArray = [];
         for ($k=0; $k < count($time); $k++) {
             $running = null;
             do {
-                curl_multi_exec($mh, $running);
+                curl_multi_exec($mhcurl, $running);
             } while ($running);
             ${"response$i"} = curl_multi_getcontent(${"ch$k"});
             $jsonDecodeResponse = json_decode(${"response$i"});
 
             array_push($responseArray, $jsonDecodeResponse);
         }
-        curl_multi_close($mh);
+        curl_multi_close($mhcurl);
         return $responseArray;
     }
 
@@ -55,16 +55,16 @@ class DarkSky
 
 
 
-        $mh = curl_multi_init();
+        $mhcurl = curl_multi_init();
         for ($i=0; $i < count($res); $i++) {
             curl_setopt(${"ch$i"}, CURLOPT_RETURNTRANSFER, true);
-            curl_multi_add_handle($mh, ${"ch$i"});
+            curl_multi_add_handle($mhcurl, ${"ch$i"});
         }
         $responseArray = [];
         for ($k=0; $k < count($res); $k++) {
             $running = null;
             do {
-                curl_multi_exec($mh, $running);
+                curl_multi_exec($mhcurl, $running);
             } while ($running);
             ${"response$i"} = curl_multi_getcontent(${"ch$k"});
         // $jsonDecodeResponse = json_decode(${"response$i"});
@@ -72,7 +72,27 @@ class DarkSky
             array_push($responseArray, ${"response$i"});
         }
 
-        curl_multi_close($mh);
+        curl_multi_close($mhcurl);
         return $responseArray;
+    }
+
+
+
+
+    public function streetActionGet($lat, $long) : string
+    {
+
+        $curlh  = curl_init('https://nominatim.openstreetmap.org/reverse?email=maraphostv@gmail.com&format=jsonv2&lat=' .$long. "&lon=".$lat);
+
+        curl_setopt($curlh, CURLOPT_RETURNTRANSFER, true);
+
+
+        $json = curl_exec($curlh);
+        curl_close($curlh);
+
+
+        // $apiResult = json_decode($json, true);
+
+        return $json;
     }
 }

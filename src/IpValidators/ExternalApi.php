@@ -28,7 +28,7 @@ class ExternalApi
           curl_close($curlh);
 
 
-          $api_result = json_decode($json, true);
+
 
           return $json;
     }
@@ -54,10 +54,10 @@ class ExternalApi
           print_r($json);
           // Decode JSON response:
           // $api_result = json_decode($json, true);
-          $api_result = json_decode($json, true);
+          $apiResult = json_decode($json, true);
           // Output the "capital" object inside "location"
           // print_r($api_result);
 
-          return $api_result;
+          return $apiResult;
     }
 }

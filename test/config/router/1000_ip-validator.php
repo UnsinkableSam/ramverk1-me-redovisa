@@ -15,10 +15,11 @@ return [
     "routes" => [
 
         [
-            "info" => "Dark sky Controller",
-            "mount" => "darkSkyController",
-            "handler" => "\Anax\Controller\DarkSkyController",
+            "info" => "Ip validator Post",
+            "mount" => "JsonController",
+            "handler" => "\Anax\Controller\IpJsonController",
 
         ],
+
     ]
 ];
