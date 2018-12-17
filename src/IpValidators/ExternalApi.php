@@ -10,6 +10,7 @@ class ExternalApi
     public function validateipActionGet($ipAdress = null, $accessKey = null) : string
     {
 
+
       // $url = "apikey.json";
       // $data = file_get_contents("http://" . $_SERVER["HTTP_HOST"] . "/dbwebb/ramverk1/me/redovisa/src/IpValidators/apikey.json");
       // $keytest = json_decode($data);

@@ -11,7 +11,6 @@ namespace Anax\View;
     echo "<br>";
     echo '<input type="text" name="ip" value="">';
     echo "<br>";
-    echo '<input type="text" name="date" placeholder="YYYY-MM-DDTHH:MM:SS" value="">';
     echo "<br>";
     ?>
     <input type="submit" name="submit">

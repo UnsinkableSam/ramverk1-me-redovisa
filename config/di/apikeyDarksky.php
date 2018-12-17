@@ -7,7 +7,7 @@
          "apikeyDarkSky" => [
              "shared" => true,
              "callback" => function () {
-                 $dirs = "7a8506da4d799f5eb16c13da8d0e55c6";
+                 $dirs = "87abcd4f5a83d4f77caf6be317702207";
                  return $dirs;
              },
          ],

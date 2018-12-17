@@ -81,7 +81,8 @@ class DarkSky
 
     public function streetActionGet($lat, $long) : string
     {
-
+        print_r($lat .  " ".   $long);
+        print_r('https://nominatim.openstreetmap.org/reverse?email=maraphostv@gmail.com&format=jsonv2&lat=' .$long. "&lon=".$lat);
         $curlh  = curl_init('https://nominatim.openstreetmap.org/reverse?email=maraphostv@gmail.com&format=jsonv2&lat=' .$long. "&lon=".$lat);
 
         curl_setopt($curlh, CURLOPT_RETURNTRANSFER, true);
@@ -92,7 +93,7 @@ class DarkSky
 
 
         // $apiResult = json_decode($json, true);
-
+        print_r($json);
         return $json;
     }
 }

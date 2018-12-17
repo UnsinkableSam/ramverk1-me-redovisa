@@ -4,7 +4,7 @@ namespace Anax\View;
 use Anax\Controller;
 
 $dark = new \Anax\Controller\darkSkyController();
-$json = $dark->darkJsonActionGet("79.138.27.9", "2016-09-02T15:30:30", $this->di);
+$json = $dark->darkJsonActionGet("79.138.27.9", $this->di);
 
 
 ?>
@@ -25,19 +25,19 @@ $json = $dark->darkJsonActionGet("79.138.27.9", "2016-09-02T15:30:30", $this->di
     echo "<br>";
     echo '<input type="text" name="ip" value="">';
     echo "<br>";
-    echo '<input type="text" name="date" placeholder="YYYY-MM-DDTHH:MM:SS" value="">';
+
     echo "<br>";
     ?>
   <input type="submit" name="submit">
 </form>
 
 To use the Api for getting the json dark wheather.
-<p style="font-size:0.8rem;">http://localhost:8080/dbwebb/ramverk1/me/redovisa/htdocs/darkSkyController/darkJson/?ip=79.138.27.9&?date=2016-09-02T15:30:30(insert Ip)</p>
+<p style="font-size:0.8rem;">http://localhost:8080/dbwebb/ramverk1/me/redovisa/htdocs/darkSkyController/darkJson/?ip=79.138.27.9(insert Ip)</p>
 
-<p style="font-size:0.8rem;">http://localhost:8080/dbwebb/ramverk1/me/redovisa/htdocs/darkSkyController/darkJson/?ip=79.138.27.9&?date=2016-09-02T15:30:30</p>
+<p style="font-size:0.8rem;">http://localhost:8080/dbwebb/ramverk1/me/redovisa/htdocs/darkSkyController/darkJson/?ip=79.138.27.9</p>
 
 
-<p style="font-size:0.8rem;"> http://localhost:8080/dbwebb/ramverk1/me/redovisa/htdocs/darkSkyController/darkJson/?ip=79.138.27.9&?date=2016-09-02T15:30:30" </p>
+<p style="font-size:0.8rem;"> http://localhost:8080/dbwebb/ramverk1/me/redovisa/htdocs/darkSkyController/darkJson/?ip=79.138.27.9" </p>
 
 <h1> It will return a json ex. </h1>
 

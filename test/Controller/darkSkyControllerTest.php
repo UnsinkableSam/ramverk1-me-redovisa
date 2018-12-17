@@ -64,12 +64,13 @@ class DarkSkyControllerTest extends TestCase
         print_r(gettype($testObj));
         $this->assertContains("object", $testObj);
 
-
         $res = $this->controller->darkActionPost("56.2, 15.5167");
         $testObj = gettype($res);
         print_r($testObj);
         print_r(gettype($testObj));
         $this->assertContains("object", $testObj);
+
+
     }
 
 

@@ -58,10 +58,10 @@ class DarkSkyController implements ContainerInjectableInterface
     {
         $keykey = $this->di->get("apikey");
         $darkSkyKey = $this->di->get("apikeyDarkSky");
-        $time = $this->di->get("request")->getPost("date") ?? "";
         $ipInfo["IP"] = $this->di->get("request")->getPost("ip") ?? $ipAdress;
         $array = [];
         $apiEx =  $this->di->get("ExternalApi");
+
         $res = $apiEx->validateipActionGet($ipInfo["IP"], $keykey);
 
         $obj = json_decode($res);
@@ -70,7 +70,8 @@ class DarkSkyController implements ContainerInjectableInterface
             $objSplit = explode(",", $ipInfo["IP"]);
             $obj = new \stdClass();
             $obj->latitude = $objSplit[0];
-            $obj->longitude = $objSplit[1];
+            $obj->longitude = substr($objSplit[1], 1);
+
         }
 
         $coordinates = (object) ["latitude" => $obj->latitude];
@@ -79,27 +80,20 @@ class DarkSkyController implements ContainerInjectableInterface
         $darkClass = new \Anax\darkSkyApi\DarkSky();
         array_push($array, $coordinates);
         $res = $darkClass::wheatherActionGet($array, $darkSkyKey);
+        $timeJson = json_decode($res[0]);
+        $streetname = $darkClass->streetActionGet($coordinates->longitude, $coordinates->latitude);
+        $time = json_decode($streetname);
+        print_r($time->address->state);
 
+        $time = date('Y-m-d H:i:s');
+        // $time = $timeJson->currently->time;
+        // $time = gmdate("Y-m-d\TH:i:s\Z", $time);
         $dates = $darkClass::wheatherSevenActionGet(30, $time);
+
         $resThirtyDaysRequest = $darkClass::wheatherThirtyActionGet($array, $dates, $darkSkyKey);
 
-          // try {
-          //   if (array_key_exists("code",$res)) {
-          //     throw new \Exception("Value must be 1 or below");
-          //   }
-          //
-          // } catch (\Exception $e) {
-          //   return $res[0];
-          // }
 
-        $streetname = $darkClass->streetActionGet($coordinates->longitude, $coordinates->latitude);
-        //
-        // $refinedDates = [];
-        //
-        //   array_push($refinedDates, $dark::wheatherActionGet($array, $dates));
 
-        // $datesJson = json_encode($dates);
-        // print_r(strtotime("2010-05-17 + 1 day"));
           $title = " | Ip Json API";
           $page = $this->di->get("page");
           $page->add(
@@ -119,14 +113,14 @@ class DarkSkyController implements ContainerInjectableInterface
 
 
 
-    public function darkJsonActionGet($ipAdress = null, $datepara = null, $di = null) : string
+    public function darkJsonActionGet($ipAdress = null, $di = null) : string
     {
         $this->di = $this->di ?? $di;
 
         $resArray = [];
 
         $keykey = $this->di->get("apikey");
-        $time = $this->di->get("request")->getGet("date") ?? $datepara;
+
         $ipInfo["IP"] = $this->di->get("request")->getGet("ip") ?? $ipAdress;
         $darkSkyKey = $this->di->get("apikeyDarkSky");
 
@@ -140,7 +134,7 @@ class DarkSkyController implements ContainerInjectableInterface
             $objSplit = explode(",", $ipInfo["IP"]);
             $obj = new \stdClass();
             $obj->latitude = $objSplit[0];
-            $obj->longitude = $objSplit[1];
+            $obj->longitude = substr($objSplit[1], 1);
         }
 
         $coordinates = (object) ["latitude" => $obj->latitude];
@@ -150,8 +144,10 @@ class DarkSkyController implements ContainerInjectableInterface
         $darkClass = new \Anax\darkSkyApi\DarkSky();
         array_push($array, $coordinates);
         $res = $darkClass::wheatherActionGet($array, $darkSkyKey);
-
-
+        // $timeJson = json_decode($res[0]);
+        // $time = $timeJson->currently->time;
+        // $time = gmdate("Y-m-d\TH:i:s\Z", $time);
+        $time = date('Y-m-d H:i:s');
 
 
 
